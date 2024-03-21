@@ -6,11 +6,19 @@
 
 #define BLOCK_DIM 1024
 
+//! \file writer.c
+//! \author nicolis manfredotti
+//! \date 21/03/24
+
+//! \fn main
 int main(int argc, char* argv[])
 {
  FILE* file;
+ //! \var buffer
  unsigned char buffer[BLOCK_DIM];
+ //! \var n
  int n;
+ //! \var fifo
  int fifo;
  
  if (argc != 2)
@@ -19,7 +27,7 @@ int main(int argc, char* argv[])
   return 0;
  }
 
- fifo = open("my_fifo", O_RDONLY);
+ fifo = open("my_fifo", O_RDONLY); //O_RDONLY per aprire un file in sola lettura
  if (fifo < 0)
  {
   printf("Errore apertura FIFO\r\n");
